@@ -11,7 +11,7 @@ body {
 
 .container {
     background-color: #ffffff;
-    color: rgba(185,170,255,255);
+    color: rgba(185, 170, 255, 255);
     padding: 3em 2.5em;
     width: 80vw;
     max-width: 37.5em;
@@ -51,9 +51,64 @@ body {
 
 #result {
     margin-top: 1.25em;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .container {
     text-align: center;
 }
 
+.word-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.word {
+    text-align: left;
+    font-weight: 400;
+    font-size: 35px;
+    letter-spacing: 1px;
+}
+
+.word-type {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.type-wrapper {
+    display: flex;
+    gap: 1rem;
+    color: gray;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.definition {
+    text-align: start;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
+.example-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-style: italic;
+
+}
+
+.line {
+    height: 30px;
+    width: 5px;
+    color: #b9aaff;
+    background-color: #b9aaff;
+}
+
+.fa-duotone {
+    color: black;
+    background-color: black;
+}
