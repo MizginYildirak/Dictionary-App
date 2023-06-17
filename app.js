@@ -1,6 +1,7 @@
 const wordInput = document.getElementById("word-inp")
 const searchBtn = document.getElementById("search-btn")
 const result = document.getElementById("result")
+const sound = document.querySelector(".sound")
 
 searchBtn.addEventListener("click", () => {
     const word = wordInput.value
@@ -15,7 +16,8 @@ searchBtn.addEventListener("click", () => {
 
                 <div class="word-type">
                     <div class="word">${responseJson[0].word}</div>
-                    <div class="sound"><i class="fa fa-volume-up"></i></div>
+                    <div class="sound" onclick="playSound()"><i class="fa fa-volume-up"></i></div>
+                    <audio id="audio"><source type="audio/mpeg" src="${responseJson[0]?.phonetics[1]?.audio}"></audio>
                 </div>
                 <div class="type-wrapper">
                     <span>${responseJson[0].meanings[0].partOfSpeech}</span>
@@ -33,5 +35,14 @@ searchBtn.addEventListener("click", () => {
             </div>
         </div>
     `
+
         })
+
 })
+
+function playSound() {
+    console.log(document.querySelector("#audio"))
+    document.querySelector("#audio").play()
+
+
+}
