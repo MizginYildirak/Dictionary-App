@@ -112,3 +112,7 @@ body {
     color: black;
     background-color: black;
 }
+
+.sound {
+    cursor: pointer;
+}
