@@ -137,6 +137,10 @@ main {
     cursor: pointer;
 }
 
+.fa-volume-up {
+    color: #b9aaff;
+}
+
 @media only screen and (max-width: 576px) {
     .container {
         padding: 3em 1em;
