@@ -12,7 +12,6 @@ searchBtn.addEventListener("click", () => {
     .then((response) => response.json())
     .then((responseJson) => {
       console.log(responseJson)
-      const example = responseJson[0].meanings[0].definitions[0].example
 
       result.innerHTML = `
             <div class="word-wrapper">
@@ -36,15 +35,10 @@ searchBtn.addEventListener("click", () => {
 
             <div class="example-wrapper">
                 <div class="line"></div>
-                ${example ? '<div class="line"></div>' : ""}
-                <p class="example">${example || ""}</p>
+                <p class="example">${responseJson[0].meanings[0].definitions[0].example || responseJson[0].meanings[0].definitions[1].example}</p>
             </div>
         </div>
     `
-
-      if (!example) {
-        line.remove()
-      }
     })
 })
 
