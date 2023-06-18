@@ -109,7 +109,7 @@ main {
 }
 
 .definition {
-    text-align: start;
+    text-align: center;
     letter-spacing: 1px;
     line-height: 20px;
 }
@@ -119,7 +119,6 @@ main {
     align-items: center;
     gap: 2rem;
     font-style: italic;
-
 }
 
 .line {
@@ -136,4 +135,27 @@ main {
 
 .sound {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+    .container {
+        padding: 3em 1em;
+    }
+
+    .search-wrapper {
+        gap: 0.5em;
+    }
+
+    .search-wrapper input {
+        padding: 0;
+    }
+
+    .search-wrapper button {
+        font-size: 12px;
+    }
+
+    .definition p {
+        text-align: center;
+        white-space: normal;
+    }
 }
