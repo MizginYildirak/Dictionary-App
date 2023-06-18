@@ -2,6 +2,7 @@ const wordInput = document.getElementById("word-inp")
 const searchBtn = document.getElementById("search-btn")
 const result = document.getElementById("result")
 const sound = document.querySelector(".sound")
+const line = document.querySelector(".line")
 
 searchBtn.addEventListener("click", () => {
     const word = wordInput.value
@@ -11,13 +12,15 @@ searchBtn.addEventListener("click", () => {
         .then((response) => response.json())
         .then((responseJson) => {
             console.log(responseJson);
+            const example = responseJson[0].meanings[0].definitions[0].example;
+
             result.innerHTML = `
             <div class="word-wrapper">
 
                 <div class="word-type">
                     <div class="word">${responseJson[0].word}</div>
                     <div class="sound" onclick="playSound()"><i class="fa fa-volume-up"></i></div>
-                    <audio id="audio"><source type="audio/mpeg" src="${responseJson[0]?.phonetics[1]?.audio}"></audio>
+                    <audio id="audio"><source type="audio/mpeg" src="${responseJson[0].phonetics[1].audio}"></audio>
                 </div>
                 <div class="type-wrapper">
                     <span>${responseJson[0].meanings[0].partOfSpeech}</span>
@@ -31,18 +34,19 @@ searchBtn.addEventListener("click", () => {
 
             <div class="example-wrapper">
                 <div class="line"></div>
-                <p class="example">${responseJson[0].meanings[0].definitions[0].example || ""}</p>
+                ${example ? '<div class="line"></div>' : ''}
+                <p class="example">${example || ""}</p>
             </div>
         </div>
     `
 
+            if (!example) {
+                line.remove()
+            }
         })
 
 })
 
 function playSound() {
-    console.log(document.querySelector("#audio"))
     document.querySelector("#audio").play()
-
-
 }

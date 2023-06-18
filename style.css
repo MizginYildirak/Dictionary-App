@@ -7,6 +7,31 @@
 body {
     background-color: #b9aaff;
     font-family: "Roboto", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.top h1 {
+    margin-bottom: 1rem;
+    color: #222a43;
+}
+
+.top div {
+    width: 100px;
+    height: 0.1rem;
+    background-color: white;
+    width: 100%;
 }
 
 .container {
@@ -15,10 +40,6 @@ body {
     padding: 3em 2.5em;
     width: 80vw;
     max-width: 37.5em;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
     border-radius: 0.62em;
     box-shadow: 0 1.25em 1.8em rgba(8, 21, 65, 0.25);
 }
