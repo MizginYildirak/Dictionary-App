@@ -3,9 +3,10 @@ const searchBtn = document.getElementById("search-btn")
 const result = document.getElementById("result")
 const sound = document.querySelector(".sound")
 const line = document.querySelector(".line")
+const exampleWrapper = document.querySelector(".example-wrapper")
 
 searchBtn.addEventListener("click", () => {
-  const word = wordInput.value;
+  const word = wordInput.value
   const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
 
   fetch(url)
@@ -15,31 +16,44 @@ searchBtn.addEventListener("click", () => {
 
       result.innerHTML = `
             <div class="word-wrapper">
-
                 <div class="word-type">
-                    <div class="word">${responseJson[0].word}</div>
+                    <div class="word">${responseJson[0]?.word}</div>
                     <div class="sound" onclick="playSound()"><i class="fa fa-volume-up"></i></div>
                     <audio id="audio"><source type="audio/mpeg" src="${
-                      responseJson[0].phonetics[1].audio
+                      responseJson[0]?.phonetics[1]?.audio
                     }"></audio>
                 </div>
                 <div class="type-wrapper">
-                    <span>${responseJson[0].meanings[0].partOfSpeech}</span>
-                    <span>${responseJson[0].phonetic}</span>
+                    <span>${responseJson[0]?.meanings[0]?.partOfSpeech}</span>
+                    <span>${responseJson[0]?.phonetic}</span>
                 </div>
             </div>
 
             <div class="definition">
-                <p>${responseJson[0].meanings[0].definitions[0].definition}</p>
+                <p>${
+                  responseJson[0]?.meanings[0]?.definitions[0]?.definition ||
+                  responseJson[0]?.meanings[1]?.definitions[0]?.definition
+                }</p>
             </div>
 
             <div class="example-wrapper">
                 <div class="line"></div>
-                <p class="example">${responseJson[0].meanings[0].definitions[0].example || responseJson[0].meanings[0].definitions[1].example}</p>
+                <p class="example">${
+                  responseJson[0]?.meanings[0]?.definitions[0]?.example ||
+                  responseJson[0]?.meanings[0]?.definitions[1]?.example ||
+                  ""
+                }</p>
             </div>
-        </div>
-    `
+        </div>`
     })
+
+  if (
+    responseJson[0]?.meanings[0]?.definitions[0]?.example == null ||
+    responseJson[0]?.meanings[0]?.definitions[0]?.example == undefined
+  ) {
+    console.log("ewfew")
+    exampleWrapper.style.display = "none"
+  }
 })
 
 function playSound() {
