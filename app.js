@@ -17,6 +17,7 @@ searchBtn.addEventListener("click", () => {
             let meanings = responseJson[0]?.meanings;
 
             if (meanings) {
+                result.style.padding = "20px"
                 result.innerHTML = "";
 
                 let wordWrapper = document.createElement("div");
@@ -103,6 +104,25 @@ searchBtn.addEventListener("click", () => {
                             exampleText.classList.add("example");
                             exampleText.textContent = example;
 
+                            exampleWrapper.appendChild(line);
+                            exampleWrapper.appendChild(partOfSpeechExample);
+                            exampleWrapper.appendChild(exampleText);
+                            result.appendChild(exampleWrapper);
+                        } else {
+                            let exampleWrapper = document.createElement("div");
+                            exampleWrapper.classList.add("example-wrapper");
+                    
+                            let line = document.createElement("div");
+                            line.classList.add("line");
+                    
+                            let partOfSpeechExample = document.createElement("span");
+                            partOfSpeechExample.textContent = partOfSpeech;
+                            partOfSpeechExample.classList.add("part-of-speech-example");
+                    
+                            let exampleText = document.createElement("p");
+                            exampleText.classList.add("example");
+                            exampleText.textContent = "No example found.";
+                    
                             exampleWrapper.appendChild(line);
                             exampleWrapper.appendChild(partOfSpeechExample);
                             exampleWrapper.appendChild(exampleText);
