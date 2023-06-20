@@ -73,11 +73,12 @@
   }
   
   #result {
-    margin-top: 1.25em;
     color: black;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
+    max-height: 500px;
+    overflow-y: scroll;
   }
   
   .container {
@@ -143,12 +144,6 @@
     color: #b9aaff;
   }
 
-  #result {
-    max-height: 500px;
-    overflow-x: scroll;
-    padding: 20px;
-  }
-  
   @media only screen and (max-width: 576px) {
     .container {
       padding: 3em 1em;
