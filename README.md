@@ -17,7 +17,7 @@
 -  This is a simple dictionary app made with Fetch API.
 
 
-![Dictionary App](![[image](https://www.linkpicture.com/q/resim_2023-06-20_221908985.png)]
+![Dictionary App](https://www.linkpicture.com/q/resim_2023-06-20_221908985.png)
 
 Project Skeleton
 
