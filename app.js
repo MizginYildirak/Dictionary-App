@@ -65,16 +65,17 @@ searchBtn.addEventListener("click", () => {
                 for (let i = 0; i < meanings.length; i++) {
                     let partOfSpeech = meanings[i]?.partOfSpeech;
                     let definitions = meanings[i]?.definitions;
+      
+                        let typeWrapper = document.createElement("div");
+                        typeWrapper.classList.add("type-wrapper");
 
-                    let typeWrapper = document.createElement("div");
-                    typeWrapper.classList.add("type-wrapper");
+                        let partOfSpeechLabel = document.createElement("span");
+                        partOfSpeechLabel.textContent = partOfSpeech;
+                        partOfSpeechLabel.classList.add("part-of-speech");
 
-                    let partOfSpeechLabel = document.createElement("span");
-                    partOfSpeechLabel.textContent = partOfSpeech;
-                    partOfSpeechLabel.classList.add("part-of-speech");
+                        typeWrapper.appendChild(partOfSpeechLabel);
+                        wordWrapper.appendChild(typeWrapper);
 
-                    typeWrapper.appendChild(partOfSpeechLabel);
-                    wordWrapper.appendChild(typeWrapper);
 
                     for (let j = 0; j < 1; j++) {
                         let definition = definitions[j]?.definition;
@@ -93,6 +94,8 @@ searchBtn.addEventListener("click", () => {
                             let exampleWrapper = document.createElement("div");
                             exampleWrapper.classList.add("example-wrapper");
 
+                            result.style.overflowY = "scroll"
+
                             let line = document.createElement("div");
                             line.classList.add("line");
 
@@ -108,21 +111,22 @@ searchBtn.addEventListener("click", () => {
                             exampleWrapper.appendChild(partOfSpeechExample);
                             exampleWrapper.appendChild(exampleText);
                             result.appendChild(exampleWrapper);
+
                         } else {
                             let exampleWrapper = document.createElement("div");
                             exampleWrapper.classList.add("example-wrapper");
-                    
+
                             let line = document.createElement("div");
                             line.classList.add("line");
-                    
+
                             let partOfSpeechExample = document.createElement("span");
                             partOfSpeechExample.textContent = partOfSpeech;
                             partOfSpeechExample.classList.add("part-of-speech-example");
-                    
+
                             let exampleText = document.createElement("p");
                             exampleText.classList.add("example");
                             exampleText.textContent = "No example found.";
-                    
+
                             exampleWrapper.appendChild(line);
                             exampleWrapper.appendChild(partOfSpeechExample);
                             exampleWrapper.appendChild(exampleText);
@@ -131,6 +135,7 @@ searchBtn.addEventListener("click", () => {
                     }
                 }
             } else {
+                result.style.overflow = "hidden"
                 result.innerHTML = "No definitions found.";
             }
         });
