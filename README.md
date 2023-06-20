@@ -17,8 +17,7 @@
 -  This is a simple dictionary app made with Fetch API.
 
 
-![Dictionary App](![image](![image](https://github.com/MizginYildirak/Dictionary-App/assets/101987484/77df0f32-7ec0-4a28-9726-4fb661c24b17)
-))
+![Dictionary App](![image](![image](https://github.com/MizginYildirak/Dictionary-App/assets/101987484/77df0f32-7ec0-4a28-9726-4fb661c24b17))
 
 Project Skeleton
 
